@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/949nb/Vue-ui-ninja/issues"
   },
-  "homepage": "https://github.com/949nb/Vue-ui-ninja#readme"
+  "homepage": "https://github.com/949nb/Vue-ui-ninja#readme",
+  "dependencies": {
+    "vue": "^2.6.10"
+  }
 }
