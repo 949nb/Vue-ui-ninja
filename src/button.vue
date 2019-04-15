@@ -1,8 +1,6 @@
 <template>
   <button class="g-button" :class="{[`icon-${iconPosition}`]:true}">
-    <svg class="icon" v-if="icon">
-      <use :xlink:href="`#i-${icon}`"></use>
-    </svg>
+    <g-icon  v-if="icon"  :name="icon"></g-icon>
     <div class="content">
       <slot></slot>
     </div>
@@ -37,6 +35,7 @@
     justify-content: center;
     align-items: center;
     vertical-align: middle;
+    cursor: pointer;
 
     &:hover {
       border-color: var(--border-color-hover);
