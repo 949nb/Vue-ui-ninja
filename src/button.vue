@@ -11,7 +11,17 @@
 
 <script>
   export default {
-    props: ['icon', 'iconPosition']
+    // props: ['icon', 'iconPosition']
+    props: {
+      icon: {},
+      iconPosition: {
+        type: String,
+        default: 'left',
+        validator(value) {
+          return !(value !== 'left' && value !== 'right');
+        }
+      }
+    }
   }
 </script>
 
@@ -28,14 +38,38 @@
     align-items: center;
     vertical-align: middle;
 
-    &:hover {border-color: var(--border-color-hover);}
-    &:active {background-color: var(--button-active-bg);}
-    &:focus {outline: none;}
-    > .icon{order: 1;margin-right: .3em;margin-left: 0;}
-    > .content{order: 2;}
-    &.icon-right{
-      > .icon{order: 2;margin-left: .3em;margin-right: 0;}
-      > .content{order: 1;}
+    &:hover {
+      border-color: var(--border-color-hover);
+    }
+
+    &:active {
+      background-color: var(--button-active-bg);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    > .icon {
+      order: 1;
+      margin-right: .3em;
+      margin-left: 0;
+    }
+
+    > .content {
+      order: 2;
+    }
+
+    &.icon-right {
+      > .icon {
+        order: 2;
+        margin-left: .3em;
+        margin-right: 0;
+      }
+
+      > .content {
+        order: 1;
+      }
     }
   }
 </style>
