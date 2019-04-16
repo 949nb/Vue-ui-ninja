@@ -15,3 +15,80 @@ new Vue({
     loading3: false
   }
 })
+
+import chai from 'chai'
+const expect = chai.expect
+//单元测试
+{
+  const Constructor = Vue.extend(Button)
+  const vm = new Constructor({
+    propsData:{
+      icon:'settings'
+    }
+  })
+  vm.$mount('#test')
+  let useElement = vm.$el.querySelector('use')
+  console.log(useElement);
+  expect(useElement.getAttribute('xlink:href')).to.eq('#i-settings')
+  vm.$el.remove()
+  vm.$destroy()
+}
+{
+  const Constructor = Vue.extend(Button)
+  const vm = new Constructor({
+    propsData:{
+      icon:'settings',
+      loading: true
+    }
+  })
+  vm.$mount('#i-loading')
+  let useElement = vm.$el.querySelector('use')
+  let href = useElement.getAttribute('xlink:href')
+  expect(href).to.eq('#i-loading')
+  vm.$el.remove()
+  vm.$destroy()
+}
+{
+  const Constructor = Vue.extend(Button)
+  const vm = new Constructor({
+    propsData:{
+      icon:'download'
+    }
+  })
+  vm.$mount('#svg')
+  let svg = vm.$el.querySelector('svg')
+  let {order} = window.getComputedStyle(svg)
+  expect(order).to.eq('1')
+  vm.$el.remove()
+  vm.$destroy()
+}
+{
+  const Constructor = Vue.extend(Button)
+  const vm = new Constructor({
+    propsData:{
+      icon:'download',
+      iconPosition: 'right'
+    }
+  })
+  vm.$mount('#position')
+  let svg = vm.$el.querySelector('svg')
+  let {order} = window.getComputedStyle(svg)
+  expect(order).to.eq('2')
+  vm.$el.remove()
+  vm.$destroy()
+}
+{
+  //mock
+  const Constructor = Vue.extend(Button)
+  const vm = new Constructor({
+    propsData:{
+      icon:'download'
+    }
+  })
+  vm.$mount()
+  vm.$on('click',function () {
+    console.log(1)
+  })
+  let button = vm.$el
+  button.click()
+}
