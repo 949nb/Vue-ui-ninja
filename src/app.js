@@ -77,18 +77,3 @@ const expect = chai.expect
   vm.$el.remove()
   vm.$destroy()
 }
-{
-  //mock
-  const Constructor = Vue.extend(Button)
-  const vm = new Constructor({
-    propsData:{
-      icon:'download'
-    }
-  })
-  vm.$mount()
-  vm.$on('click',function () {
-    console.log(1)
-  })
-  let button = vm.$el
-  button.click()
-}
