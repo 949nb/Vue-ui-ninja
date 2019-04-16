@@ -14,6 +14,7 @@ export default{}
     margin-top: 100px;
     > .g-button{
       border-radius: 0;
+      margin-left: -1px;
       &:first-child{
         border-top-left-radius: var(--button-radius);
         border-bottom-left-radius: var(--button-radius);
@@ -21,6 +22,10 @@ export default{}
       &:last-child{
         border-top-right-radius: var(--button-radius);
         border-bottom-right-radius: var(--button-radius);
+      }
+      &:hover{
+        position: relative;
+        z-index: 1;
       }
     }
   }
