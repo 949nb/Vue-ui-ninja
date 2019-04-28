@@ -18,6 +18,7 @@ new Vue({
 
 import chai from 'chai'
 const expect = chai.expect
+
 //单元测试
 {
   const Constructor = Vue.extend(Button)
